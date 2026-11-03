@@ -1,38 +1,45 @@
+
 import { Link } from "@tanstack/react-router";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { services, site } from "@/data/site";
 
 export function SiteFooter() {
   return (
-    <footer className="bg-foreground text-background">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+    <footer className="border-t border-white/10 bg-[#11110f] text-[#f0eadf]">
+      <div className="mx-auto max-w-[1440px] px-5 pb-8 pt-16 sm:px-8 sm:pt-20 lg:px-12">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_0.8fr_0.8fr_1fr] lg:gap-10">
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="flex size-9 items-center justify-center rounded-lg bg-background font-display text-sm font-bold tracking-tight text-foreground">
+            <Link to="/" className="inline-flex items-center gap-3">
+              <span className="flex size-11 items-center justify-center border border-[#c6a66b]/70 text-xs font-bold tracking-[0.15em] text-[#d7bc86]">
                 CUL
               </span>
-              <span className="font-display text-base font-semibold tracking-tight">The CUL Group</span>
-            </div>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-background/70">
-              A San Francisco digital agency helping local businesses win online — with better websites,
-              better search rankings and smarter automation.
+              <span className="font-display text-2xl">The CUL Group</span>
+            </Link>
+
+            <p className="mt-6 max-w-sm text-sm leading-7 text-[#a9a194]">
+              Thoughtful websites, stronger search visibility and practical
+              automation for businesses building their next chapter.
+            </p>
+
+            <p className="mt-6 text-[10px] uppercase tracking-[0.2em] text-[#c6a66b]">
+              San Francisco · United States
             </p>
           </div>
 
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-background/60">
-              Services
+            <h3 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c6a66b]">
+              Expertise
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-5 space-y-3">
               {services.map((service) => (
                 <li key={service.slug}>
                   <Link
                     to="/services/$slug"
                     params={{ slug: service.slug }}
-                    className="text-sm text-background/80 transition-colors hover:text-background"
+                    className="group inline-flex items-center gap-2 text-sm text-[#bcb5a9] transition-colors hover:text-white"
                   >
-                    {service.name}
+                    {service.shortName}
+                    <ArrowUpRight className="size-3 opacity-0 transition-opacity group-hover:opacity-100" />
                   </Link>
                 </li>
               ))}
@@ -40,21 +47,21 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-background/60">
-              Company
+            <h3 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c6a66b]">
+              Explore
             </h3>
-            <ul className="mt-4 space-y-3">
+            <ul className="mt-5 space-y-3">
               {[
                 { to: "/", label: "Home" },
-                { to: "/about", label: "About" },
+                { to: "/about", label: "About us" },
                 { to: "/services", label: "Services" },
-                { to: "/work", label: "Our Work" },
+                { to: "/work", label: "Selected work" },
                 { to: "/contact", label: "Contact" },
               ].map((item) => (
-                <li key={item.label}>
+                <li key={item.to}>
                   <Link
                     to={item.to}
-                    className="text-sm text-background/80 transition-colors hover:text-background"
+                    className="text-sm text-[#bcb5a9] transition-colors hover:text-white"
                   >
                     {item.label}
                   </Link>
@@ -64,33 +71,48 @@ export function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="font-display text-sm font-semibold uppercase tracking-widest text-background/60">
-              Get in touch
+            <h3 className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#c6a66b]">
+              Start a conversation
             </h3>
-            <ul className="mt-4 space-y-3 text-sm">
-              <li>
-                <a href={site.phoneHref} className="flex items-center gap-2.5 text-background/80 transition-colors hover:text-background">
-                  <Phone className="size-4 shrink-0" aria-hidden />
-                  {site.phone}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${site.email}`} className="flex items-center gap-2.5 text-background/80 transition-colors hover:text-background">
-                  <Mail className="size-4 shrink-0" aria-hidden />
-                  {site.email}
-                </a>
-              </li>
-              <li className="flex items-start gap-2.5 text-background/80">
-                <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden />
-                {site.location}
-              </li>
-            </ul>
+            <p className="mt-5 text-sm leading-7 text-[#a9a194]">
+              Have a project in mind? Let's discuss the right next step for
+              your business.
+            </p>
+
+            <a
+              href={site.phoneHref}
+              className="mt-5 flex items-center gap-3 text-sm text-[#e7d4ad] transition-colors hover:text-white"
+            >
+              <Phone className="size-4 shrink-0" />
+              {site.phone}
+            </a>
+
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-4 flex items-start gap-3 break-all text-sm text-[#bcb5a9] transition-colors hover:text-white"
+            >
+              <Mail className="mt-0.5 size-4 shrink-0" />
+              {site.email}
+            </a>
+
+            <p className="mt-4 flex items-start gap-3 text-sm text-[#bcb5a9]">
+              <MapPin className="mt-0.5 size-4 shrink-0" />
+              {site.location}
+            </p>
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-3 border-t border-background/15 pt-6 text-xs text-background/60 sm:flex-row">
+        <div className="luxury-line mt-14 opacity-60" />
+
+        <div className="flex flex-col gap-3 pt-6 text-[11px] text-[#8f887d] sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} The CUL Group. All rights reserved.</p>
-          <p>{site.location}</p>
+          <a
+            href={site.phoneHref}
+            className="inline-flex items-center gap-2 transition-colors hover:text-[#d7bc86]"
+          >
+            Let's talk about your project
+            <ArrowUpRight className="size-3.5" />
+          </a>
         </div>
       </div>
     </footer>
