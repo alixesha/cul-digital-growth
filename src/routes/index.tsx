@@ -1,10 +1,8 @@
+
 import { createFileRoute, Link } from "@tanstack/react-router";
 import {
   ArrowRight,
-  CheckCircle2,
-  MapPin,
-  Phone,
-  Sparkles,
+  Check,
   Globe2,
   Search,
   Bot,
@@ -12,6 +10,10 @@ import {
   ShieldCheck,
   Zap,
   Workflow,
+  Phone,
+  MapPin,
+  Sparkles,
+  MoveUpRight,
 } from "lucide-react";
 import { Reveal } from "@/components/reveal";
 import { heroImage, services, site } from "@/data/site";
@@ -20,21 +22,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "CUL Group | Web Design, Local SEO & AI Automation",
+        title: "CUL Group | Digital Experiences & Business Growth",
       },
       {
         name: "description",
         content:
-          "CUL Group helps businesses build a stronger online presence with custom websites, local SEO, Google Business Profile optimization, AI automation and digital marketing.",
+          "The CUL Group helps businesses grow online through custom website design, local SEO, Google Business Profile optimization, AI automation and digital marketing.",
       },
       {
         property: "og:title",
-        content: "CUL Group | Digital Solutions for Business Growth",
+        content: "The CUL Group | Digital, Thoughtfully Done",
       },
       {
         property: "og:description",
         content:
-          "Custom websites, local search optimization and practical AI automation for businesses ready to grow online.",
+          "Thoughtful websites, smarter digital strategy and practical automation for ambitious businesses.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -43,171 +45,206 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
+const serviceIcons = [Globe2, Search, Bot, TrendingUp];
+
+const process = [
+  {
+    number: "01",
+    title: "Discover",
+    description:
+      "We take time to understand your business, your audience and what success looks like for you.",
+    icon: Search,
+  },
+  {
+    number: "02",
+    title: "Strategise",
+    description:
+      "We identify the right opportunities and create a clear direction for your digital presence.",
+    icon: Workflow,
+  },
+  {
+    number: "03",
+    title: "Create",
+    description:
+      "We bring the strategy to life through considered design, technology and execution.",
+    icon: Globe2,
+  },
+  {
+    number: "04",
+    title: "Evolve",
+    description:
+      "We help you identify the next opportunities as your business and digital needs develop.",
+    icon: TrendingUp,
+  },
+];
+
+const principles = [
+  {
+    number: "01",
+    title: "Purposeful design",
+    description:
+      "Every detail has a reason. We focus on experiences that look considered and feel effortless to use.",
+    icon: Sparkles,
+  },
+  {
+    number: "02",
+    title: "Built with care",
+    description:
+      "We value responsive layouts, performance, usability and thoughtful implementation.",
+    icon: ShieldCheck,
+  },
+  {
+    number: "03",
+    title: "Smarter systems",
+    description:
+      "We explore practical technology and automation that can make everyday business tasks easier.",
+    icon: Zap,
+  },
+];
+
 function Index() {
-  const serviceIcons = [Globe2, Search, Bot, TrendingUp];
-
   return (
-    <>
-      {/* PREMIUM HERO */}
-      <section className="relative isolate overflow-hidden">
+    <main className="overflow-hidden bg-background text-foreground">
+
+      {/* HERO */}
+      <section className="relative isolate min-h-[88vh] overflow-hidden">
         <div
+          className="pointer-events-none absolute -right-40 -top-32 -z-10 size-[550px] rounded-full bg-primary/10 blur-[150px]"
           aria-hidden="true"
-          className="pointer-events-none absolute -right-40 -top-40 -z-10 size-[520px] rounded-full bg-amber-200/30 blur-[120px]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-40 -left-40 -z-10 size-[420px] rounded-full bg-stone-300/40 blur-[100px]"
         />
 
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:pb-24 lg:pt-24">
+        <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-5 pb-20 pt-16 sm:px-8 sm:pt-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-14 lg:pb-28 lg:pt-28">
+
           <Reveal direction="right">
-            <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card/80 px-4 py-2 text-xs font-semibold tracking-wide text-muted-foreground shadow-sm">
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-500 opacity-50" />
-                <span className="relative inline-flex size-2 rounded-full bg-emerald-600" />
-              </span>
-              DIGITAL STRATEGY. BUILT AROUND YOU.
+            <div className="flex items-center gap-3">
+              <span className="h-px w-10 bg-primary" />
+              <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-primary sm:text-xs">
+                The CUL Group · Digital Agency
+              </p>
             </div>
 
-            <h1 className="mt-7 max-w-3xl font-display text-5xl font-bold leading-[1.02] tracking-[-0.055em] text-foreground sm:text-6xl lg:text-7xl xl:text-[5.3rem]">
+            <h1 className="mt-8 max-w-3xl font-display text-[3.5rem] font-medium leading-[0.98] tracking-[-0.055em] sm:text-7xl lg:text-[5.8rem] xl:text-[6.4rem]">
               Your next stage of growth starts{" "}
-              <span className="relative inline-block">
-                <span className="relative z-10">online.</span>
-                <span
-                  aria-hidden="true"
-                  className="absolute bottom-1 left-0 -z-0 h-3 w-full -rotate-2 rounded-sm bg-amber-300/70 sm:bottom-2 sm:h-4"
-                />
+              <span className="font-display italic text-primary">
+                online.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg">
-              We help businesses show up, stand out and turn their digital
-              presence into a practical growth tool — through thoughtful
-              website design, local SEO and intelligent automation.
+            <p className="mt-8 max-w-xl text-base leading-8 text-muted-foreground sm:text-lg">
+              We create thoughtful digital experiences that help businesses
+              show up with confidence, connect with the right people and move
+              forward with purpose.
             </p>
 
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 to="/contact"
-                className="group inline-flex min-h-13 items-center justify-center gap-3 rounded-full bg-foreground px-7 py-4 text-sm font-semibold text-background shadow-lg shadow-black/10 transition-all duration-300 hover:-translate-y-1 hover:bg-foreground/85 hover:shadow-xl"
+                className="group inline-flex min-h-14 items-center justify-center gap-5 rounded-full bg-primary px-8 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_-12px_hsl(var(--primary)/0.5)]"
               >
-                Let's discuss your project
-                <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
+                Start a conversation
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
 
               <Link
-                to="/work"
-                className="inline-flex min-h-13 items-center justify-center gap-2 rounded-full border border-border bg-background/70 px-7 py-4 text-sm font-semibold text-foreground transition-all duration-300 hover:border-foreground/30 hover:bg-card"
+                to="/services"
+                className="group inline-flex min-h-14 items-center justify-center gap-4 rounded-full border border-border px-8 py-4 text-sm font-semibold transition-all duration-300 hover:border-primary hover:text-primary"
               >
-                Explore our work
-                <ArrowRight className="size-4" />
+                Explore our services
+                <MoveUpRight className="size-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </Link>
             </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm text-muted-foreground">
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="size-4" />
-                Tailored solutions
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="size-4" />
-                Clear communication
-              </span>
-              <span className="inline-flex items-center gap-2">
-                <CheckCircle2 className="size-4" />
-                Built for your goals
-              </span>
+            <div className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-4 border-t border-border pt-7">
+              {["Thoughtful strategy", "Considered design", "Practical technology"].map(
+                (item) => (
+                  <span
+                    key={item}
+                    className="flex items-center gap-2 text-xs text-muted-foreground"
+                  >
+                    <Check className="size-3.5 text-primary" />
+                    {item}
+                  </span>
+                ),
+              )}
             </div>
-
-            <a
-              href={site.phoneHref}
-              className="mt-7 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
-            >
-              <Phone className="size-4" />
-              Prefer a call? {site.phone}
-            </a>
           </Reveal>
 
-          <Reveal direction="left" delay={150}>
-            <div className="relative mx-auto w-full max-w-xl">
-              <div className="absolute -inset-3 rotate-3 rounded-[2rem] border border-foreground/10 bg-card/60 sm:-inset-4" />
+          <Reveal direction="left" delay={180}>
+            <div className="relative mx-auto w-full max-w-[620px]">
 
-              <div className="relative overflow-hidden rounded-[1.7rem] border border-border bg-card p-2 shadow-2xl shadow-black/10 sm:p-3">
-                <div className="relative overflow-hidden rounded-[1.25rem]">
-                  <img
-                    src={heroImage}
-                    alt="CUL Group digital design and business solutions"
-                    width={1200}
-                    height={1400}
-                    fetchPriority="high"
-                    className="aspect-[4/4.5] w-full object-cover transition-transform duration-700 hover:scale-[1.025] sm:aspect-[4/4.2]"
-                  />
+              <div className="absolute -inset-3 rounded-[2rem] border border-primary/20 sm:-inset-5" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-transparent to-black/5" />
+              <div className="relative overflow-hidden rounded-[1.7rem] bg-card">
+                <img
+                  src={heroImage}
+                  alt="The CUL Group digital design and business solutions"
+                  width={1200}
+                  height={1400}
+                  fetchPriority="high"
+                  className="aspect-[4/4.7] w-full object-cover transition-transform duration-1000 hover:scale-105 sm:aspect-[4/4.5]"
+                />
 
-                  <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/25 bg-black/25 px-3 py-2 text-xs font-medium text-white backdrop-blur-md">
-                    <Sparkles className="size-3.5" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/5 to-black/10" />
+
+                <div className="absolute left-6 top-6 flex items-center gap-3 rounded-full border border-white/25 bg-black/25 px-4 py-2.5 backdrop-blur-md">
+                  <span className="size-2 rounded-full bg-primary" />
+                  <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-white">
                     Digital, thoughtfully done
-                  </div>
+                  </span>
+                </div>
 
-                  <div className="absolute bottom-5 left-5 right-5 text-white sm:bottom-7 sm:left-7 sm:right-7">
-                    <p className="text-xs font-semibold uppercase tracking-[0.22em] text-white/75">
-                      THE CUL GROUP
-                    </p>
-                    <h2 className="mt-2 max-w-sm font-display text-3xl font-semibold leading-tight sm:text-4xl">
-                      Better digital experiences. Clearer direction.
-                    </h2>
+                <div className="absolute bottom-7 left-6 right-6 sm:bottom-10 sm:left-9 sm:right-9">
+                  <p className="text-[10px] uppercase tracking-[0.3em] text-white/65">
+                    A better way forward
+                  </p>
+                  <h2 className="mt-3 max-w-md font-display text-3xl font-medium leading-tight text-white sm:text-5xl">
+                    Make your digital presence mean more.
+                  </h2>
+                  <div className="mt-6 h-px w-full bg-white/30" />
+                  <div className="mt-4 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/70">
+                    <span>Strategy · Design · Growth</span>
+                    <span>01 — 04</span>
                   </div>
                 </div>
               </div>
 
-              <div className="absolute -bottom-5 -left-2 flex items-center gap-3 rounded-2xl border border-border bg-background p-4 shadow-xl sm:-left-8 sm:p-5">
-                <div className="flex size-11 items-center justify-center rounded-xl bg-foreground text-background">
-                  <Zap className="size-5" />
+              <div className="absolute -bottom-5 -left-3 hidden items-center gap-3 border border-border bg-card px-5 py-4 shadow-2xl sm:flex sm:-left-8">
+                <div className="flex size-10 items-center justify-center bg-primary text-primary-foreground">
+                  <Sparkles className="size-5" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-foreground">
-                    Strategy meets execution
-                  </p>
-                  <p className="mt-1 text-xs text-muted-foreground">
-                    One partner for your digital needs
+                  <p className="text-xs font-semibold">One thoughtful partner</p>
+                  <p className="mt-1 text-[10px] text-muted-foreground">
+                    Across your digital journey
                   </p>
                 </div>
               </div>
 
-              <div className="absolute -right-1 top-1/3 hidden rounded-2xl border border-border bg-background/95 p-4 shadow-xl backdrop-blur sm:block">
-                <div className="flex items-center gap-3">
-                  <div className="flex size-10 items-center justify-center rounded-full bg-amber-100 text-amber-900">
-                    <Globe2 className="size-5" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold">Built for the web</p>
-                    <p className="mt-1 text-xs text-muted-foreground">
-                      Design · Search · Automation
-                    </p>
-                  </div>
-                </div>
+              <div className="absolute -right-3 top-1/4 hidden border border-border bg-card px-4 py-4 shadow-xl lg:block">
+                <p className="text-[9px] uppercase tracking-[0.2em] text-muted-foreground">
+                  Our focus
+                </p>
+                <p className="mt-2 font-display text-xl italic text-primary">
+                  Your growth.
+                </p>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* SERVICE MARQUEE */}
-      <section
-        className="overflow-hidden border-y border-border bg-card py-5"
-        aria-label="CUL Group services"
-      >
-        <div className="flex w-max animate-marquee gap-8 pr-8 sm:gap-12 sm:pr-12">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex items-center gap-8 sm:gap-12">
+      {/* MOVING SERVICE STRIP */}
+      <section className="overflow-hidden border-y border-border bg-card py-6">
+        <div className="flex w-max animate-marquee gap-10">
+          {[0, 1, 2].map((copy) => (
+            <div key={copy} className="flex items-center gap-10">
               {services.map((service) => (
                 <span
                   key={`${copy}-${service.slug}`}
-                  className="flex items-center gap-8 whitespace-nowrap font-display text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground sm:gap-12 sm:text-sm"
+                  className="flex items-center gap-10 whitespace-nowrap font-display text-lg italic text-muted-foreground sm:text-xl"
                 >
                   {service.name}
-                  <span className="size-1.5 rounded-full bg-amber-500" />
+                  <span className="size-1.5 rounded-full bg-primary" />
                 </span>
               ))}
             </div>
@@ -215,166 +252,204 @@ function Index() {
         </div>
       </section>
 
-      {/* SERVICES */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-32">
-        <div className="grid gap-7 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+      {/* INTRODUCTION */}
+      <section className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-14 lg:py-40">
+        <div className="grid gap-12 lg:grid-cols-[0.35fr_1fr] lg:gap-20">
           <Reveal direction="right">
-            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              <span className="h-px w-7 bg-foreground/50" />
-              What we do
+            <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">
+              <span className="h-px w-8 bg-primary" />
+              Our philosophy
             </p>
-            <h2 className="mt-5 max-w-2xl font-display text-4xl font-bold leading-tight tracking-tight text-foreground sm:text-5xl">
-              Everything you need to move your business forward.
-            </h2>
           </Reveal>
 
           <Reveal direction="left" delay={100}>
-            <p className="max-w-lg text-base leading-8 text-muted-foreground lg:ml-auto">
-              From your first website to smarter workflows, we bring your
-              digital essentials together with a focus on quality, usability
-              and your business goals.
-            </p>
-          </Reveal>
-        </div>
+            <h2 className="max-w-5xl font-display text-4xl font-medium leading-[1.15] tracking-tight sm:text-5xl lg:text-6xl">
+              The digital world moves fast. Your business deserves a partner
+              who thinks{" "}
+              <span className="italic text-primary">beyond the ordinary.</span>
+            </h2>
 
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:mt-16">
-          {services.map((service, index) => {
-            const ServiceIcon = serviceIcons[index] ?? Globe2;
-
-            return (
-              <Reveal
-                key={service.slug}
-                direction={index % 2 === 0 ? "left" : "right"}
-                delay={index * 90}
-              >
-                <Link
-                  to="/services/$slug"
-                  params={{ slug: service.slug }}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-border bg-card transition-all duration-500 hover:-translate-y-1.5 hover:border-foreground/20 hover:shadow-2xl hover:shadow-black/5"
-                >
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={service.image}
-                      alt={service.name}
-                      width={1200}
-                      height={750}
-                      loading="lazy"
-                      className="aspect-[16/8.5] w-full object-cover transition-transform duration-700 group-hover:scale-[1.045]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent opacity-80" />
-                    <span className="absolute left-5 top-5 flex size-12 items-center justify-center rounded-2xl border border-white/30 bg-white/90 text-neutral-900 shadow-lg backdrop-blur-sm">
-                      <ServiceIcon className="size-5" />
-                    </span>
-                    <span className="absolute bottom-5 right-5 flex size-10 items-center justify-center rounded-full bg-white text-neutral-900 transition-transform duration-300 group-hover:rotate-[-45deg]">
-                      <ArrowRight className="size-4" />
-                    </span>
-                  </div>
-
-                  <div className="flex flex-1 flex-col p-6 sm:p-8">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
-                      0{index + 1} / Digital solutions
-                    </p>
-                    <h3 className="mt-3 font-display text-xl font-bold tracking-tight text-foreground sm:text-2xl">
-                      {service.name}
-                    </h3>
-                    <p className="mt-3 flex-1 text-sm leading-7 text-muted-foreground sm:text-base">
-                      {service.tagline}
-                    </p>
-                    <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-foreground">
-                      Explore this service
-                      <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
-              </Reveal>
-            );
-          })}
-        </div>
-      </section>
-            {/* HOW WE HELP */}
-      <section className="relative overflow-hidden bg-foreground text-background">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -right-32 top-0 size-96 rounded-full bg-white/5 blur-[100px]"
-        />
-
-        <div className="relative mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-            <Reveal direction="right">
-              <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-background/60">
-                <span className="h-px w-7 bg-background/50" />
-                The CUL approach
-              </p>
-
-              <h2 className="mt-5 font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-                Good work starts with understanding your business.
-              </h2>
-
-              <p className="mt-6 max-w-lg text-base leading-8 text-background/70">
-                No unnecessary complexity. No one-size-fits-all solutions.
-                Just a thoughtful process designed around your audience,
-                priorities and next steps.
+            <div className="mt-9 flex flex-col gap-7 border-t border-border pt-7 sm:flex-row sm:items-end sm:justify-between">
+              <p className="max-w-xl text-sm leading-8 text-muted-foreground sm:text-base">
+                At The CUL Group, we bring strategy, design and technology
+                together to help businesses build a stronger and more useful
+                online presence.
               </p>
 
               <Link
                 to="/about"
-                className="group mt-8 inline-flex items-center gap-3 rounded-full border border-background/25 px-6 py-3.5 text-sm font-semibold transition-all duration-300 hover:border-background/60 hover:bg-background/10"
+                className="group inline-flex shrink-0 items-center gap-3 text-sm font-semibold transition-colors hover:text-primary"
               >
-                Get to know CUL Group
+                Discover our approach
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* SERVICES */}
+      <section className="bg-card py-24 sm:py-32 lg:py-36">
+        <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-14">
+
+          <Reveal direction="up">
+            <div className="flex flex-col justify-between gap-7 lg:flex-row lg:items-end">
+              <div>
+                <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">
+                  <span className="h-px w-8 bg-primary" />
+                  What we do
+                </p>
+                <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-tight sm:text-5xl lg:text-6xl">
+                  Digital solutions,{" "}
+                  <span className="italic text-primary">considered.</span>
+                </h2>
+              </div>
+
+              <p className="max-w-md text-sm leading-8 text-muted-foreground">
+                The right digital foundations can change how your business
+                presents itself, connects with customers and operates every day.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-16 grid gap-6 sm:grid-cols-2">
+            {services.map((service, index) => {
+              const Icon = serviceIcons[index] ?? Globe2;
+
+              return (
+                <Reveal
+                  key={service.slug}
+                  direction={index % 2 === 0 ? "left" : "right"}
+                  delay={index * 100}
+                >
+                  <Link
+                    to="/services/$slug"
+                    params={{ slug: service.slug }}
+                    className="group block h-full border border-border bg-background transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:shadow-2xl"
+                  >
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={service.image}
+                        alt={service.name}
+                        width={1200}
+                        height={750}
+                        loading="lazy"
+                        className="aspect-[16/9] w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                      />
+
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-70" />
+
+                      <div className="absolute left-6 top-6 flex size-12 items-center justify-center border border-white/30 bg-black/25 text-white backdrop-blur-md">
+                        <Icon className="size-5" />
+                      </div>
+
+                      <div className="absolute bottom-5 right-5 flex size-11 items-center justify-center rounded-full bg-primary text-primary-foreground transition-transform duration-500 group-hover:rotate-45">
+                        <ArrowRight className="size-5" />
+                      </div>
+                    </div>
+
+                    <div className="p-7 sm:p-9">
+                      <div className="flex items-center justify-between">
+                        <p className="text-[10px] uppercase tracking-[0.22em] text-primary">
+                          Digital solution
+                        </p>
+                        <span className="font-display text-lg italic text-muted-foreground">
+                          0{index + 1}
+                        </span>
+                      </div>
+
+                      <h3 className="mt-5 font-display text-2xl font-medium sm:text-3xl">
+                        {service.name}
+                      </h3>
+
+                      <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                        {service.tagline}
+                      </p>
+
+                      <div className="mt-7 flex items-center gap-3 border-t border-border pt-5 text-xs font-semibold uppercase tracking-[0.12em] transition-colors group-hover:text-primary">
+                        Discover this service
+                        <ArrowRight className="size-4 transition-transform group-hover:translate-x-2" />
+                      </div>
+                    </div>
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          <Reveal direction="up" delay={100}>
+            <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-border pt-8 sm:flex-row sm:items-center">
+              <p className="text-sm text-muted-foreground">
+                Looking for something specific? Let's discuss your requirements.
+              </p>
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-3 text-sm font-semibold text-primary"
+              >
+                Talk to our team
+                <ArrowRight className="size-4" />
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+      
+      {/* PROCESS */}
+      <section className="relative overflow-hidden bg-foreground text-background">
+        <div
+          className="pointer-events-none absolute -right-40 top-0 size-[500px] rounded-full bg-primary/10 blur-[140px]"
+          aria-hidden="true"
+        />
+
+        <div className="relative mx-auto max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-14 lg:py-36">
+          <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr]">
+
+            <Reveal direction="right">
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">
+                <span className="h-px w-8 bg-primary" />
+                How we work
+              </p>
+
+              <h2 className="mt-7 font-display text-4xl font-medium leading-tight sm:text-5xl lg:text-6xl">
+                Thoughtful from the{" "}
+                <span className="italic text-primary">very beginning.</span>
+              </h2>
+
+              <p className="mt-7 max-w-md text-sm leading-8 text-background/65 sm:text-base">
+                Great digital work is not just about how something looks. It
+                starts with understanding the problem, finding the right
+                direction and paying attention to every detail.
+              </p>
+
+              <Link
+                to="/about"
+                className="group mt-9 inline-flex items-center gap-4 border-b border-primary pb-3 text-sm font-semibold transition-colors hover:text-primary"
+              >
+                More about our approach
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Reveal>
 
-            <div className="space-y-0">
-              {[
-                {
-                  number: "01",
-                  title: "Understand",
-                  description:
-                    "We learn about your business, customers, competition and what you want to achieve.",
-                  icon: Search,
-                },
-                {
-                  number: "02",
-                  title: "Plan",
-                  description:
-                    "We recommend a practical approach with clear priorities, deliverables and expectations.",
-                  icon: Workflow,
-                },
-                {
-                  number: "03",
-                  title: "Create",
-                  description:
-                    "We build your solution with attention to design, usability, performance and detail.",
-                  icon: Globe2,
-                },
-                {
-                  number: "04",
-                  title: "Improve",
-                  description:
-                    "We help you identify opportunities to refine your online presence as your needs evolve.",
-                  icon: TrendingUp,
-                },
-              ].map((item, index) => {
-                const StepIcon = item.icon;
+            <div>
+              {process.map((item, index) => {
+                const Icon = item.icon;
 
                 return (
-                  <Reveal key={item.number} direction="left" delay={index * 90}>
-                    <div className="group flex gap-5 border-b border-background/15 py-6 first:pt-0 last:border-b-0">
-                      <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl border border-background/15 bg-background/[0.06] transition-colors duration-300 group-hover:bg-background/15">
-                        <StepIcon className="size-5" />
+                  <Reveal key={item.number} direction="left" delay={index * 100}>
+                    <div className="group flex gap-5 border-b border-background/15 py-7 first:pt-0 sm:gap-8 sm:py-9">
+                      <div className="font-display text-2xl italic text-primary/70 sm:text-3xl">
+                        {item.number}
                       </div>
 
                       <div className="flex-1">
-                        <div className="flex flex-wrap items-center gap-3">
-                          <span className="text-xs font-semibold tracking-widest text-background/45">
-                            {item.number}
-                          </span>
-                          <h3 className="font-display text-xl font-semibold">
+                        <div className="flex items-center justify-between gap-4">
+                          <h3 className="font-display text-2xl font-medium sm:text-3xl">
                             {item.title}
                           </h3>
+                          <Icon className="size-5 text-primary transition-transform duration-300 group-hover:rotate-12" />
                         </div>
-                        <p className="mt-2 max-w-lg text-sm leading-7 text-background/65">
+
+                        <p className="mt-3 max-w-lg text-sm leading-7 text-background/60">
                           {item.description}
                         </p>
                       </div>
@@ -387,67 +462,45 @@ function Index() {
         </div>
       </section>
 
-      {/* TRUST & CAPABILITIES */}
-      <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 sm:py-24 lg:px-10 lg:py-28">
+      {/* BRAND PRINCIPLES */}
+      <section className="mx-auto max-w-[1440px] px-5 py-24 sm:px-8 sm:py-32 lg:px-14 lg:py-36">
         <Reveal direction="up">
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-              The details matter
+            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">
+              The CUL difference
             </p>
 
-            <h2 className="mt-4 font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Built with purpose. Designed for real people.
+            <h2 className="mt-6 font-display text-4xl font-medium leading-tight sm:text-5xl lg:text-6xl">
+              Details that make{" "}
+              <span className="italic text-primary">a difference.</span>
             </h2>
 
-            <p className="mt-5 text-base leading-8 text-muted-foreground">
-              Every project deserves a thoughtful foundation. We focus on
-              the practical details that make digital experiences easier to
-              use, manage and improve.
+            <p className="mx-auto mt-6 max-w-xl text-sm leading-8 text-muted-foreground sm:text-base">
+              We believe that quality is found in the details — from the first
+              conversation to the final experience.
             </p>
           </div>
         </Reveal>
 
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {[
-            {
-              icon: ShieldCheck,
-              title: "Security-minded",
-              description:
-                "Considered implementation and sensible security practices.",
-            },
-            {
-              icon: Zap,
-              title: "Performance-focused",
-              description:
-                "Attention to loading speed, usability and responsive layouts.",
-            },
-            {
-              icon: Search,
-              title: "Search-ready",
-              description:
-                "SEO fundamentals that help search engines understand your content.",
-            },
-            {
-              icon: Workflow,
-              title: "Automation-aware",
-              description:
-                "Practical workflows that can reduce repetitive business tasks.",
-            },
-          ].map((item, index) => {
-            const FeatureIcon = item.icon;
+        <div className="mt-16 grid gap-0 border-y border-border sm:grid-cols-3 sm:divide-x sm:divide-border">
+          {principles.map((item, index) => {
+            const Icon = item.icon;
 
             return (
-              <Reveal key={item.title} direction="up" delay={index * 80}>
-                <article className="group h-full rounded-3xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-foreground/20 hover:shadow-xl hover:shadow-black/5 sm:p-7">
-                  <div className="flex size-12 items-center justify-center rounded-2xl bg-background text-foreground ring-1 ring-border transition-colors duration-300 group-hover:bg-foreground group-hover:text-background">
-                    <FeatureIcon className="size-5" />
+              <Reveal key={item.number} direction="up" delay={index * 100}>
+                <article className="group h-full px-5 py-9 transition-colors duration-300 hover:bg-card sm:px-8 sm:py-12 lg:px-10">
+                  <div className="flex items-center justify-between">
+                    <span className="font-display text-xl italic text-primary">
+                      {item.number}
+                    </span>
+                    <Icon className="size-5 text-muted-foreground transition-colors group-hover:text-primary" />
                   </div>
 
-                  <h3 className="mt-5 font-display text-lg font-bold text-foreground">
+                  <h3 className="mt-10 font-display text-2xl font-medium">
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                  <p className="mt-4 text-sm leading-8 text-muted-foreground">
                     {item.description}
                   </p>
                 </article>
@@ -455,129 +508,132 @@ function Index() {
             );
           })}
         </div>
+      </section>
 
-        <Reveal direction="up" delay={120}>
-          <div className="mt-8 flex flex-col gap-4 rounded-3xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+      {/* LOCATION / CONTACT STRIP */}
+      <section className="px-5 pb-24 sm:px-8 sm:pb-32 lg:px-14">
+        <Reveal direction="up">
+          <div className="mx-auto flex max-w-[1440px] flex-col gap-6 border-y border-border py-8 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-start gap-4">
-              <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-background ring-1 ring-border">
-                <MapPin className="size-5" />
-              </div>
-
+              <MapPin className="mt-1 size-5 text-primary" />
               <div>
-                <h3 className="font-display text-lg font-bold text-foreground">
-                  A partner for your next digital step
-                </h3>
-                <p className="mt-1 text-sm leading-7 text-muted-foreground">
-                  Based in {site.location}. Working with your business goals
-                  in mind.
+                <p className="text-xs font-semibold uppercase tracking-[0.18em]">
+                  Based in
                 </p>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  {site.location}
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <Phone className="size-5 text-primary" />
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.18em]">
+                  Speak with us
+                </p>
+                <a
+                  href={site.phoneHref}
+                  className="mt-2 block text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {site.phone}
+                </a>
               </div>
             </div>
 
             <Link
               to="/contact"
-              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-background"
+              className="inline-flex items-center gap-3 text-sm font-semibold text-primary"
             >
-              Start a conversation
+              Contact CUL Group
               <ArrowRight className="size-4" />
             </Link>
           </div>
         </Reveal>
       </section>
 
-      {/* PREMIUM CTA */}
-      <section className="px-5 pb-20 sm:px-8 sm:pb-24 lg:px-10 lg:pb-28">
-        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-foreground text-background">
+      {/* FINAL CTA */}
+      <section className="px-5 pb-20 sm:px-8 sm:pb-28 lg:px-14">
+        <div className="relative mx-auto max-w-[1440px] overflow-hidden bg-foreground text-background">
           <div
+            className="pointer-events-none absolute -right-20 -top-40 size-[500px] rounded-full border border-background/10"
             aria-hidden="true"
-            className="pointer-events-none absolute -right-20 -top-32 size-96 rounded-full border border-background/10"
           />
           <div
+            className="pointer-events-none absolute -right-5 -top-24 size-[350px] rounded-full border border-background/10"
             aria-hidden="true"
-            className="pointer-events-none absolute -right-8 -top-20 size-72 rounded-full border border-background/10"
-          />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute -bottom-40 left-1/3 size-80 rounded-full bg-white/[0.04] blur-3xl"
           />
 
-          <div className="relative grid gap-10 p-7 sm:p-10 lg:grid-cols-[1fr_0.7fr] lg:items-center lg:gap-16 lg:p-16">
+          <div className="relative grid gap-12 p-8 sm:p-12 lg:grid-cols-[1fr_0.65fr] lg:items-center lg:p-20">
             <Reveal direction="right">
-              <p className="inline-flex items-center gap-2 rounded-full border border-background/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-background/75">
-                <Sparkles className="size-3.5" />
-                Let's build something meaningful
+              <p className="flex items-center gap-3 text-[10px] font-semibold uppercase tracking-[0.25em] text-primary">
+                <span className="h-px w-8 bg-primary" />
+                Your next chapter
               </p>
 
-              <h2 className="mt-6 max-w-2xl font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Ready for a stronger online presence?
+              <h2 className="mt-7 max-w-2xl font-display text-4xl font-medium leading-tight sm:text-5xl lg:text-7xl">
+                Let's create something{" "}
+                <span className="italic text-primary">worth remembering.</span>
               </h2>
 
-              <p className="mt-5 max-w-xl text-base leading-8 text-background/70">
-                Tell us where your business is today and where you want it to
-                go. Let's explore the right website, search or automation
-                solution for your goals.
+              <p className="mt-7 max-w-lg text-sm leading-8 text-background/65 sm:text-base">
+                Tell us about your business, your ideas and where you want to go.
+                We would love to explore what we can build together.
               </p>
-
-              <ul className="mt-6 space-y-3 text-sm text-background/80">
-                {[
-                  "A conversation about your business goals",
-                  "Practical recommendations for your next steps",
-                  "Clear communication from the start",
-                ].map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 size-4 shrink-0" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </Reveal>
 
             <Reveal direction="left" delay={120}>
-              <div className="rounded-3xl border border-background/15 bg-background/[0.06] p-6 backdrop-blur-sm sm:p-8">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-background/55">
-                  Get in touch
+              <div className="border border-background/20 bg-background/[0.04] p-7 sm:p-9">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-primary">
+                  Start a conversation
                 </p>
 
-                <h3 className="mt-3 font-display text-2xl font-bold">
-                  Tell us about your project.
+                <h3 className="mt-5 font-display text-3xl font-medium">
+                  Your idea deserves a thoughtful approach.
                 </h3>
 
-                <p className="mt-3 text-sm leading-7 text-background/65">
-                  Reach out to discuss your requirements and explore the
-                  available options.
+                <p className="mt-4 text-sm leading-7 text-background/60">
+                  Get in touch and tell us what you have in mind.
                 </p>
 
                 <Link
                   to="/contact"
-                  className="group mt-7 inline-flex w-full items-center justify-center gap-3 rounded-full bg-background px-6 py-4 text-sm font-bold text-foreground transition-all duration-300 hover:-translate-y-0.5 hover:bg-background/90"
+                  className="group mt-8 flex min-h-14 items-center justify-between gap-4 bg-primary px-6 py-4 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:-translate-y-1"
                 >
-                  Contact CUL Group
+                  Discuss your project
                   <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
                 </Link>
 
                 <a
                   href={site.phoneHref}
-                  className="mt-4 flex items-center justify-center gap-2 rounded-full border border-background/20 px-6 py-3.5 text-sm font-semibold transition-colors hover:bg-background/10"
+                  className="mt-5 flex items-center gap-3 text-sm text-background/75 transition-colors hover:text-primary"
                 >
-                  <Phone className="size-4" />
+                  <Phone className="size-4 text-primary" />
                   {site.phone}
                 </a>
 
                 <a
                   href={`mailto:${site.email}`}
-                  className="mt-5 block break-all text-center text-sm text-background/65 underline decoration-background/25 underline-offset-4 transition-colors hover:text-background"
+                  className="mt-4 block break-all text-sm text-background/75 transition-colors hover:text-primary"
                 >
                   {site.email}
                 </a>
 
-                <p className="mt-5 text-center text-xs text-background/45">
-                  {site.hours}
-                </p>
+                <div className="mt-7 border-t border-background/15 pt-5">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-background/45">
+                    Business hours
+                  </p>
+                  <p className="mt-2 text-xs text-background/65">
+                    {site.hours}
+                  </p>
+                </div>
               </div>
             </Reveal>
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
-}
+      }
+
+                
